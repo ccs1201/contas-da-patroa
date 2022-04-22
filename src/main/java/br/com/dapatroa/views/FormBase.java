@@ -3,6 +3,7 @@ package br.com.dapatroa.views;
 import com.vaadin.collaborationengine.CollaborationBinder;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
@@ -29,6 +30,11 @@ public abstract class FormBase extends FormLayout {
     }
 
     void configureButtonsLayout() {
+
+        btnDelete.setText("Remover");
+        btnCancel.setText("Cancelar");
+        btnSave.setText("Salvar");
+
 
         btnDelete.setVisible(false);
 
@@ -59,7 +65,24 @@ public abstract class FormBase extends FormLayout {
 
     protected abstract void save();
 
-    protected abstract void delete();
+    private void delete() {
+
+        ConfirmDialog dialog = new ConfirmDialog();
+
+        dialog.setHeader("Remover Registro");
+        dialog.setText("Tem certeza que deseja remover o registro ?");
+
+        dialog.setCancelable(true);
+        dialog.setCancelText("Cancelar");
+
+        dialog.setConfirmText("Confirmar");
+        dialog.addConfirmListener(e -> deleteAction());
+
+        dialog.open();
+
+    }
+
+    protected abstract void deleteAction();
 
     protected void clearForm() {
 

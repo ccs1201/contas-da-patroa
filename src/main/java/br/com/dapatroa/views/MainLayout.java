@@ -2,7 +2,7 @@ package br.com.dapatroa.views;
 
 import br.com.dapatroa.data.entity.User;
 import br.com.dapatroa.security.AuthenticatedUser;
-import br.com.dapatroa.views.cadastrocategorias.CadastroCategoriasView;
+import br.com.dapatroa.views.cadastrocategorias.CategoriasView;
 import br.com.dapatroa.views.cadastrocontas.CadastroContasView;
 import br.com.dapatroa.views.cadastrousuários.CadastroUsuáriosView;
 import br.com.dapatroa.views.home.HomeView;
@@ -139,7 +139,7 @@ public class MainLayout extends AppLayout {
 
                 new MenuItemInfo("Cadastro Contas", "la la-cash-register", CadastroContasView.class), //
 
-                new MenuItemInfo("Cadastro Categorias", "la la-clipboard-list", CadastroCategoriasView.class), //
+                new MenuItemInfo("Cadastro Categorias", "la la-clipboard-list", CategoriasView.class), //
 
                 new MenuItemInfo("Cadastro Usuários", "la la-user", CadastroUsuáriosView.class), //
 
